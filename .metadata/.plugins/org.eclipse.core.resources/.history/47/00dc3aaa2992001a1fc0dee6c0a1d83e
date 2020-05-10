@@ -1,0 +1,31 @@
+package war;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Deck {
+	private List<Card> cards = new ArrayList<Card>();
+	
+	public Deck() {
+		
+	}
+
+	public List<Card> getCards() {
+		return cards;
+	}
+
+	public void setCards(List<Card> cards) {
+		this.cards = cards;
+	}
+	
+	public List<Card> shuffle(List<Card> cards) {
+		
+		return cards;
+	}
+	
+	public Card draw(List<Card> cards) {
+		Card topCard = new Card();
+		
+		return topCard;
+	}
+}

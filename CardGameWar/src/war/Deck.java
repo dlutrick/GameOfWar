@@ -1,0 +1,36 @@
+package war;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class Deck {
+	private List<Card> cards = new ArrayList<Card>();
+	private int[] cardValue = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
+	private String[] cardName = {"Diamonds", "Hearts", "Cloves", "Clubs"};
+	
+	public Deck() {
+		for(String name : cardName) {
+			for(int value : cardValue) {
+				cards.add(new Card(name, value));
+			}
+		}
+	}
+
+	public List<Card> getCards() {
+		return cards;
+	}
+
+	public void setCards(List<Card> cards) {
+		this.cards = cards;
+	}
+	
+	public List<Card> shuffle(List<Card> cards) {
+		Collections.shuffle(cards);
+		return cards;
+	}
+	
+	public Card draw(List<Card> cards) {
+		return cards.remove(0);
+	}
+}

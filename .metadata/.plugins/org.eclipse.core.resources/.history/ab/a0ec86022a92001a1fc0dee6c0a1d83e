@@ -1,0 +1,10 @@
+package war;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Player {
+	private List<Card> hand = new ArrayList<Card>();
+	private int score;
+	private String name;
+}

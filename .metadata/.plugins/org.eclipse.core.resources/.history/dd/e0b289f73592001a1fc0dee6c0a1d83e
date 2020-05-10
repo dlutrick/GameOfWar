@@ -1,0 +1,32 @@
+package war;
+
+public class App {
+
+	public static void main(String[] args) {
+		Deck deck = new Deck();
+		Player playerOne = new Player();
+		Player playerTwo = new Player();
+		
+		deck.shuffle(deck.getCards());
+		
+		for(int i = 0; i < 52; i++) {
+			if(i % 2 == 0) {
+				playerOne.draw(deck);
+			} else {
+				playerTwo.draw(deck);
+			}
+		}
+		
+		for(int i = 0; i < 26; i++) {
+			Card playerOneCard = playerOne.flip(playerOne.getHand());
+			Card playerTwoCard = playerTwo.flip(playerTwo.getHand());
+			
+			if(playerOneCard.getValue() > playerTwoCard.getValue()) {
+				playerOne.incrementScore();
+			} else if(playerOneCard.getValue() < playerTwoCard.getValue()) {
+				playerTwo.incrementScore();
+			}
+		}
+	}
+
+}

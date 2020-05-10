@@ -1,0 +1,25 @@
+package war;
+
+public class App {
+
+	public static void main(String[] args) {
+		Deck deck = new Deck();
+		Player playerOne = new Player();
+		Player playerTwo = new Player();
+		
+		deck.shuffle(deck.getCards());
+		
+		for(int i = 0; i < 52; i++) {
+			if(i % 2 == 0) {
+				playerOne.draw(deck, deck.getCards());
+			} else {
+				playerTwo.draw(deck, deck.getCards());
+			}
+		}
+		
+		for(int i = 0; i < 26; i++) {
+							
+		}
+	}
+
+}

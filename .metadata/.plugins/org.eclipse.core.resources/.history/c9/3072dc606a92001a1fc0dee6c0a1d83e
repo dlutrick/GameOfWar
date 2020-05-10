@@ -1,0 +1,52 @@
+package war;
+
+public class App {
+
+	public static void main(String[] args) {
+		Deck deck = new Deck();
+		Player playerOne = new Player();
+		Player playerTwo = new Player();
+				
+		//deck.shuffle(deck.getCards());
+		
+		for(Card card : deck.getCards()) {
+			//System.out.println(card.getName());
+			System.out.println(card.getValue());
+		}
+		
+		for(int i = 0; i < 52; i++) {
+			if(i % 2 == 0) {
+				playerOne.draw(deck);
+				playerOne.draw(deck);
+				
+			} else {
+				playerTwo.draw(deck);
+			}
+		}
+		
+		System.out.println(playerOne.getHand());
+		System.out.println(playerTwo.getHand());
+		
+		for(int i = 0; i < 26; i++) {
+			Card playerOneCard = playerOne.flip(playerOne.getHand());
+			Card playerTwoCard = playerTwo.flip(playerTwo.getHand());
+			System.out.println(playerOneCard);
+			System.out.println(playerTwoCard);
+			
+			if(playerOneCard.getValue() > playerTwoCard.getValue()) {
+				playerOne.incrementScore();
+			} else if(playerOneCard.getValue() < playerTwoCard.getValue()) {
+				playerTwo.incrementScore();
+			} 
+		}
+		
+		if(playerOne.getScore() == playerTwo.getScore()) {
+			System.out.println("It's a draw! Player 1: " + playerOne.getScore() + " Player 2: " + playerTwo.getScore());
+		} else if(playerOne.getScore() > playerTwo.getScore()) {
+			System.out.println("Player 1 wins with a score of : " + playerOne.getScore());
+		} else {
+			System.out.println("Player 2 wins with a score of : " + playerTwo.getScore());
+		}
+	}
+
+}

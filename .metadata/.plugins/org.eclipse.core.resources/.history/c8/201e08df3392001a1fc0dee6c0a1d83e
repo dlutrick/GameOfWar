@@ -1,0 +1,65 @@
+package war;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Player {
+	private List<Card> hand = new ArrayList<Card>();
+	private int score;
+	private String name;
+	Card card = new Card();
+	
+	public Player() {
+		score = 0;
+	}
+	
+	public List<Card> getHand() {
+		return hand;
+	}
+	
+	public void setHand(List<Card> hand) {
+		this.hand = hand;
+	}
+	
+	public int getScore() {
+		return score;
+	}
+	
+	public void setScore(int score) {
+		this.score = score;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public void describe(Player player) {
+		System.out.println(player.getName());
+		System.out.println(player.getScore());
+		System.out.println(player.getHand());
+	}
+	
+	public Card flip(List<Card> hand) {
+		Card topCard = new Card();
+		topCard = hand.remove(0);
+		return topCard;
+	}
+	
+	public Card draw(Deck deck, List<Card> card) {
+		Card drawnCard = new Card();
+		drawnCard = deck.draw(card);
+		
+		return drawnCard;
+	}
+	
+	public int incrementScore(int score) {
+		score += 1;
+		
+		return score;
+	}
+	
+}

@@ -1,0 +1,64 @@
+package war;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class Deck {
+	private List<Card> cards = new ArrayList<Card>();
+	Card card = new Card();
+	
+	public Deck() {
+		for(int i = 0; i < 52; i++) {
+			if(i < 13) {
+				card.setName("Diamonds");
+				for(int d = 0; d < 14; d++) {
+					card.setValue(d);
+				}
+				cards.add(card);
+			}
+			if(i > 12 && i < 26) {
+				card.setName("Hearts");
+				for(int h = 0; h < 14; h++) {
+					card.setValue(h);
+				}
+				cards.add(card);
+			}
+			if(i > 25 && i < 39) {
+				card.setName("Spades");
+				for(int s = 0; s < 14; s++) {
+					card.setValue(s);
+				}
+				cards.add(card);
+			}
+			if(i > 38 && i < 52) {
+				card.setName("Cloves");
+				for(int c = 0; c < 14; c++) {
+					card.setValue(c);
+				}
+				cards.add(card);
+			}
+//			cards.add(card);
+			
+		}
+	}
+
+	public List<Card> getCards() {
+		return cards;
+	}
+
+	public void setCards(List<Card> cards) {
+		this.cards = cards;
+	}
+	
+	public List<Card> shuffle(List<Card> cards) {
+		Collections.shuffle(cards);
+		return cards;
+	}
+	
+	public Card draw(List<Card> cards) {
+		Card topCard = new Card();
+		topCard = cards.remove(0);
+		return topCard;
+	}
+}
